@@ -1,18 +1,19 @@
-## Getting Started
+# Búsqueda Binaria
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+**Estudiante:** Joshue Avecillas
 
-## Folder Structure
+## Práctica -- Búsqueda Binaria con Personas
 
-The workspace contains two folders by default, where:
+Esta práctica implementa la búsqueda binaria utilizando una estructura
+de objetos `Persona`, organizada en un proyecto con modelo, controlador
+y vista.
 
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
+El programa permite:
+- Ingresar una lista de personas (nombre y edad).
+- Ordenarlas por edad.
+- Buscar una edad específica usando búsqueda binaria.
+- Mostrar cada paso del proceso mediante la clase `ShowConsole`.
 
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
+## Salida del Programa
 
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
-
-## Dependency Management
-
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
+![Salida](assets/image.png)

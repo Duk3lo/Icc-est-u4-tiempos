@@ -2,7 +2,7 @@ package controllers;
 
 public class SortMethods {
 
-    // Burbuja clásica
+    // Burbuja clásica (in-place)
     public void sortBubble(int[] numeros) {
         int n = numeros.length;
         for (int i = 0; i < n - 1; i++) {
@@ -16,7 +16,6 @@ public class SortMethods {
         }
     }
 
-    // Burbuja mejorada (detiene si ya está ordenado)
     public void burbble(int[] numeros) {
         int n = numeros.length;
         for (int i = 0; i < n - 1; i++) {
@@ -35,7 +34,6 @@ public class SortMethods {
         }
     }
 
-    // Shell sort (secuencia simple gap /= 2)
     public void shell(int[] numeros) {
         int n = numeros.length;
         for (int gap = n / 2; gap > 0; gap /= 2) {
@@ -51,42 +49,22 @@ public class SortMethods {
         }
     }
 
-    // Merge sort iterativo (bottom-up) sin métodos auxiliares privados
     public void mergeSort(int[] numeros) {
         int n = numeros.length;
-        if (n < 2)
-            return;
-
+        if (n < 2) return;
         int[] aux = new int[n];
-
-        // tamaño de subarrays a fusionar: 1, 2, 4, 8, ...
         for (int width = 1; width < n; width *= 2) {
             for (int left = 0; left < n; left += 2 * width) {
                 int mid = Math.min(left + width, n);
                 int right = Math.min(left + 2 * width, n);
-
-                // copiar segmento [left, right)
-                for (int k = left; k < right; k++) {
-                    aux[k] = numeros[k];
-                }
-
-                int i = left; // cursor izquierda (aux)
-                int j = mid; // cursor derecha (aux)
-                int k = left; // cursor resultado en numeros
-
+                for (int k = left; k < right; k++) aux[k] = numeros[k];
+                int i = left, j = mid, k = left;
                 while (i < mid && j < right) {
-                    if (aux[i] <= aux[j]) {
-                        numeros[k++] = aux[i++];
-                    } else {
-                        numeros[k++] = aux[j++];
-                    }
+                    if (aux[i] <= aux[j]) numeros[k++] = aux[i++];
+                    else numeros[k++] = aux[j++];
                 }
-                while (i < mid) {
-                    numeros[k++] = aux[i++];
-                }
-                while (j < right) {
-                    numeros[k++] = aux[j++];
-                }
+                while (i < mid) numeros[k++] = aux[i++];
+                while (j < right) numeros[k++] = aux[j++];
             }
         }
     }
