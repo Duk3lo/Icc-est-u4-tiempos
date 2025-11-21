@@ -98,7 +98,6 @@ public class App {
             // Sin ordenar (solo medir tiempo base)
             // ==============================
             Callable<Void> noSortCall = () -> {
-                int[] toSort = Arrays.copyOf(array, array.length);
                 // no se ordena
                 return null;
             };
